@@ -7,13 +7,13 @@ enum Command {
 };
 
 SoftwareSerial mySerial(10, 11);
+
+int baudRate = 19200;
+
 String commandBuffer = "";
+
 void setup() {
-  Serial.begin(9600);
-  while (!Serial) {
-    ; 
-  }
-  mySerial.begin(9600);
+  mySerial.begin(baudRate);
 }
 
 void processCommand(Command command){
