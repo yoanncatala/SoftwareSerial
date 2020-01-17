@@ -8,15 +8,17 @@ enum Command {
 
 SoftwareSerial mySerial(10, 11); // RX, TX
 
+int baudRate = 19200;
+
 bool waitingForResponse = false;
 String responseBuffer = "";
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(baudRate);
   while (!Serial) {
     ;
   }
-  mySerial.begin(9600);
+  mySerial.begin(baudRate);
 }
 
 void getResponse(){
@@ -48,8 +50,8 @@ void sendCommands(){
   sendCommand(READ_A1);
   Serial.print("\tA2:");
   sendCommand(READ_A2);
-  //Serial.print("\tA3:");
-  //sendCommand(READ_A3);
+  Serial.print("\tA3:");
+  sendCommand(READ_A3);
   Serial.println("");
 }
 
